@@ -1,4 +1,4 @@
-namespace StrokeFigure {
+namespace StrokeFigure.State {
     internal class AppState {
 
     }

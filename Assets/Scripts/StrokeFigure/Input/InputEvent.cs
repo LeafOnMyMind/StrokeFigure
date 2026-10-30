@@ -1,4 +1,7 @@
-namespace StrokeFigure {
+using StrokeFigure.InteractiveApp;
+using StrokeFigure.State;
+
+namespace StrokeFigure.Input {
     internal abstract record InputEvent {
         internal abstract void DispatchTo(
             InputHandler recipient, AppState state, EffectQueue effects

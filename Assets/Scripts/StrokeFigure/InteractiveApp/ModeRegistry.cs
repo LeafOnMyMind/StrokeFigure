@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace StrokeFigure {
+namespace StrokeFigure.InteractiveApp {
     internal sealed class ModeRegistry {
         private Dictionary<Type, Mode> modes = new Dictionary<Type, Mode>();
 

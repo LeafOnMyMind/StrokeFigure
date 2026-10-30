@@ -1,4 +1,7 @@
-namespace StrokeFigure {
+using StrokeFigure.InteractiveApp;
+using StrokeFigure.State;
+
+namespace StrokeFigure.Input {
     internal interface InputHandler { }
 
     internal interface InputHandler<in HandledInputEvent> : InputHandler

@@ -1,3 +1,5 @@
+using StrokeFigure.InteractiveApp;
+using StrokeFigure.Modes;
 using UnityEngine;
 
 namespace StrokeFigure {
@@ -11,8 +13,15 @@ namespace StrokeFigure {
         }
 
         private void Start() {
-            this.app = new App();
-            this.app.Start();
+            EffectQueue startEffects = this.CreateStartEffects();
+            this.app = new App(startEffects);
+        }
+
+
+        private EffectQueue CreateStartEffects() {
+            EffectQueue startEffects = new EffectQueue();
+            startEffects.Enqueue(new TransitionTo<Idle>());
+            return startEffects;
         }
 
         private void Update() {

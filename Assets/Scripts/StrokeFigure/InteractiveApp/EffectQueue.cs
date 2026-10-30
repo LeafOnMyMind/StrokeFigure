@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace StrokeFigure {
+namespace StrokeFigure.InteractiveApp {
     internal sealed class EffectQueue {
         private readonly Queue<Effect> effects = new Queue<Effect>();
 

@@ -1,4 +1,6 @@
-namespace StrokeFigure {
+using StrokeFigure.State;
+
+namespace StrokeFigure.InteractiveApp {
     internal abstract class Command : Effect {
         protected abstract void Modify(AppState state);
 

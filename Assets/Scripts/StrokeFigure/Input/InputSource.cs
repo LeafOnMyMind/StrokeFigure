@@ -1,4 +1,4 @@
-namespace StrokeFigure {
+namespace StrokeFigure.Input {
     internal abstract class InputSource { }
 
     internal abstract class InputSource<EmittedInputEvent> : InputSource where EmittedInputEvent : InputEvent {

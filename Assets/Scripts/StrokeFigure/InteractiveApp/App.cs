@@ -1,4 +1,7 @@
-namespace StrokeFigure {
+using StrokeFigure.Input;
+using StrokeFigure.State;
+
+namespace StrokeFigure.InteractiveApp {
     internal sealed class App {
         private readonly InputEventQueue inputEvents = new InputEventQueue();
         internal InputEventQueue InputEvents {
@@ -22,14 +25,7 @@ namespace StrokeFigure {
             }
         }
 
-        private EffectQueue CreateStartEffects() {
-            EffectQueue startEffects = new EffectQueue();
-            startEffects.Enqueue(new TransitionTo<Idle>());
-            return startEffects;
-        }
-
-        internal void Start() {
-            EffectQueue startEffects = this.CreateStartEffects();
+        internal App(EffectQueue startEffects) {
             while (startEffects.TryDequeue(out Effect effect)) {
                 effect.ApplyTo(this);
             }

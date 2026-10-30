@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace StrokeFigure {
+namespace StrokeFigure.Logging {
     public sealed class LogFields {
         private List<(string, string)> fields = new List<(string, string)>();
 

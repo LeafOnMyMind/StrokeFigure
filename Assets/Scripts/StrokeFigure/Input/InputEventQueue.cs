@@ -1,6 +1,6 @@
 using System.Collections.Concurrent;
 
-namespace StrokeFigure {
+namespace StrokeFigure.Input {
     internal sealed class InputEventQueue {
         private readonly ConcurrentQueue<InputEvent> events = new ConcurrentQueue<InputEvent>();
 
