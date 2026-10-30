@@ -46,6 +46,9 @@ namespace StrokeFigure.InteractiveApp {
                 this.currentMode?.GetType().Name ?? "none", effect);
                 effect.ApplyTo(this);
             }
+
+            Debug.Assert(this.currentMode is not null && this.returnMode is not null);
+            Debug.Assert(this.currentMode is not Quasimode);
         }
 
         internal void Update() {
