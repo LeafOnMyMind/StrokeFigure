@@ -43,7 +43,7 @@ namespace StrokeFigure.InteractiveApp {
         internal App(EffectQueue startEffects) {
             while (startEffects.TryDequeue(out Effect effect)) {
                 this.logger.Append(Time.realtimeSinceStartupAsDouble,
-                this.currentMode?.GetType().Name ?? "none", effect);
+                    this.currentMode?.GetType().Name ?? "none", effect);
                 effect.ApplyTo(this);
             }
 
@@ -52,8 +52,6 @@ namespace StrokeFigure.InteractiveApp {
         }
 
         internal void Update() {
-            if (this.currentMode is null) return;
-
             while (this.inputEvents.TryDequeue(out InputEvent inputEvent)) {
                 inputEvent.DispatchTo(this.currentMode, this.currentState, this.effects);
                 while (this.effects.TryDequeue(out Effect effect)) {
@@ -74,7 +72,7 @@ namespace StrokeFigure.InteractiveApp {
 
         internal void ReturnFromQuasimode() {
             if (this.currentMode is not Quasimode) {
-                string current = this.currentMode?.GetType().Name ?? "no mode";
+                string current = this.currentMode.GetType().Name;
                 UnityEngine.Debug.LogWarning(
                     $"ReturnFromQuasimode was applied in {current}, " +
                     "which is not a quasimode; the mode is unchanged."

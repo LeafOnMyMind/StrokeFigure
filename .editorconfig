@@ -160,21 +160,21 @@ dotnet_naming_symbols.static_readonly_fields.applicable_kinds = field
 dotnet_naming_symbols.static_readonly_fields.applicable_accessibilities = *
 dotnet_naming_symbols.static_readonly_fields.required_modifiers = static, readonly
 
-# Public and protected fields: PascalCase
+# Public, protected and internal fields: PascalCase
 dotnet_naming_rule.visible_fields_should_be_pascal_case.severity = warning
 dotnet_naming_rule.visible_fields_should_be_pascal_case.symbols = visible_fields
 dotnet_naming_rule.visible_fields_should_be_pascal_case.style = pascal_case
 
 dotnet_naming_symbols.visible_fields.applicable_kinds = field
-dotnet_naming_symbols.visible_fields.applicable_accessibilities = public, protected, protected_internal, private_protected
+dotnet_naming_symbols.visible_fields.applicable_accessibilities = public, internal, protected, protected_internal, private_protected
 
-# Private and internal fields: camelCase
+# Private fields: camelCase
 dotnet_naming_rule.private_fields_should_be_camel_case.severity = warning
 dotnet_naming_rule.private_fields_should_be_camel_case.symbols = private_fields
 dotnet_naming_rule.private_fields_should_be_camel_case.style = camel_case
 
 dotnet_naming_symbols.private_fields.applicable_kinds = field
-dotnet_naming_symbols.private_fields.applicable_accessibilities = private, internal
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
 
 # Parameters and locals: camelCase
 dotnet_naming_rule.locals_and_parameters_should_be_camel_case.severity = warning
