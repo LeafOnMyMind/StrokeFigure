@@ -1,5 +1,7 @@
 using StrokeFigure.Input;
+using StrokeFigure.Logging;
 using StrokeFigure.State;
+using UnityEngine;
 
 namespace StrokeFigure.InteractiveApp {
     internal sealed class App {
@@ -15,8 +17,19 @@ namespace StrokeFigure.InteractiveApp {
         private readonly EffectQueue effects = new EffectQueue();
 
         private Mode currentMode;
+        internal Mode CurrentMode {
+            get {
+                return this.currentMode;
+            }
+        }
+
 
         private Mode returnMode;
+        internal Mode ReturnMode {
+            get {
+                return this.returnMode;
+            }
+        }
 
         private readonly AppState currentState = new AppState();
         internal AppState CurrentState {
@@ -25,8 +38,12 @@ namespace StrokeFigure.InteractiveApp {
             }
         }
 
+        private readonly AppLogger logger = new AppLogger();
+
         internal App(EffectQueue startEffects) {
             while (startEffects.TryDequeue(out Effect effect)) {
+                this.logger.Append(Time.realtimeSinceStartupAsDouble,
+                this.currentMode?.GetType().Name ?? "none", effect);
                 effect.ApplyTo(this);
             }
         }
@@ -37,6 +54,8 @@ namespace StrokeFigure.InteractiveApp {
             while (this.inputEvents.TryDequeue(out InputEvent inputEvent)) {
                 inputEvent.DispatchTo(this.currentMode, this.currentState, this.effects);
                 while (this.effects.TryDequeue(out Effect effect)) {
+                    this.logger.Append(Time.realtimeSinceStartupAsDouble,
+                        this.currentMode.GetType().Name, effect);
                     effect.ApplyTo(this);
                 }
             }

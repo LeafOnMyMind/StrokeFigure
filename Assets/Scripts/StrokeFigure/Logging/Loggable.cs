@@ -1,5 +1,5 @@
 namespace StrokeFigure.Logging {
-    public interface Loggable {
-        public virtual void AppendLogFields(LogFields fields) { }
+    internal interface Loggable {
+        internal void AppendLogFields(LogFields fields);
     }
 }
