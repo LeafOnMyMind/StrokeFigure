@@ -3,13 +3,13 @@ using StrokeFigure.Modes;
 using UnityEngine;
 
 namespace StrokeFigure {
-    internal sealed class StrokeFigure : MonoBehaviour {
+    internal sealed class AppHost : MonoBehaviour {
         private App app;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void CreateHost() {
             GameObject host = new GameObject("StrokeFigure App Host");
-            host.AddComponent<StrokeFigure>();
+            host.AddComponent<AppHost>();
         }
 
         private void Start() {
